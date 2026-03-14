@@ -1,0 +1,21 @@
+[project]
+name = "datavault-provider-ios-location"
+version = "0.1.0"
+description = "Example iOS location provider plugin for Data Vault"
+authors = [
+  { name = "Gabriel Montague", email = "montaguegabe@users.noreply.github.com" },
+]
+requires-python = ">=3.12"
+dependencies = [
+  "datavault-plugin-sdk",
+]
+
+[project.entry-points."datavault.data_providers"]
+ios_location = "datavault_provider_ios_location:get_plugin"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/datavault_provider_ios_location"]

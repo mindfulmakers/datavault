@@ -1,0 +1,44 @@
+[project]
+name = "datavault-workspace"
+version = "0.1.0"
+description = "Workspace root for the Data Vault Core project"
+authors = [
+  { name = "Gabriel Montague", email = "montaguegabe@users.noreply.github.com" },
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+  "pytest>=8.4.2",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/datavault_workspace"]
+
+[tool.uv.workspace]
+members = [
+  "packages/datavault-core",
+  "packages/datavault-plugin-sdk",
+  "packages/datavault-provider-garmin-location",
+  "packages/datavault-provider-ios-location",
+  "packages/datavault-provider-messages-demo",
+  "packages/datavault-type-location",
+  "packages/datavault-type-messages",
+]
+
+[tool.uv.sources]
+datavault-core = { workspace = true }
+datavault-plugin-sdk = { workspace = true }
+datavault-provider-garmin-location = { workspace = true }
+datavault-provider-ios-location = { workspace = true }
+datavault-provider-messages-demo = { workspace = true }
+datavault-type-location = { workspace = true }
+datavault-type-messages = { workspace = true }
